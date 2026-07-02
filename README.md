@@ -44,7 +44,6 @@ Brazilian municipalities data
 
 More than 40 million records were processed during the experiments.
 
-Project Structure
 etl-airflow-nifi-benchmark/
 │
 ├── airflow/
@@ -64,6 +63,7 @@ etl-airflow-nifi-benchmark/
 ├── docs/
 │
 └── sample_data/
+
 Important Note
 
 The original experiments were executed using institutional infrastructure from CEFET-MG and CIT/UFMG, including Hadoop cluster resources.
