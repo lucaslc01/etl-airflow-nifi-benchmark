@@ -1,0 +1,86 @@
+Qual é a quantidade de procedimentos e valores
+aprovados pelo SUS, durantes os meses de janeiro, fevereiro, março e abril,
+realizados em unidades básicas em pacientes Pretos e do sexo Masculino,
+agrupados por Região do País, mês e subcategoria do CID?
+
+
+
+SELECT 
+    municipios_df.regiao_sigla,
+    ano_mes_df.ano,   AJUSTAR PARA MESES
+    cid_df.co_categ,
+    cid_df.no_categ,
+    SUM(sia_df.pa_qtdapr) AS procedimentos,
+    SUM(sia_df.pa_valapr) AS valor
+FROM sia_df
+JOIN municipios_df 
+    ON sia_df.pa_ufmun = municipios_df.pa_ufmun  VARCHAR(10) 313010 - INTEGER id_municipio (ignorar último número) 
+JOIN ano_mes_df
+    ON sia_df.pa_cmp = ano_mes_df.pa_cmp  VARCHAR(10) 202401 - CHAR(2) mes
+JOIN cnes_df
+    ON sia_df.pa_coduni::VARCHAR = cnes_df.co_cnes  BIGINT 2160129 -  TEXT co_cnes
+JOIN sigtap_proced_df
+    ON sia_df.pa_proc_id = sigtap_proced_df.pa_proc_id  VARCHAR(15) 803010125 - VARCHAR(20) codigo
+JOIN cid_df
+    ON sia_df.pa_cidpri = cid_df.co_cid  VARCHAR(10) C530 - TEXT subcat
+JOIN sexo_df
+    ON sia_df.pa_sexo = sexo_df.pa_sexo  CHAR(1) M - CHAR(1) pa_sexo
+JOIN raca_cor_df
+    ON sia_df.pa_racacor = raca_cor_df.pa_racacor  VARCHAR(5) 3 - 03 VARCHAR(3) pa_racacor
+WHERE cnes_df.tp_unidade_desc ILIKE '%UNIDADE BASICA%'  TEXT no_razao_social
+  AND sigtap_proced_df.no_procedimento ILIKE '%PSICOTERAPIA%'   TEXT procedimento
+  AND ano_mes_df.ano IN ('2018', '2019', '2020')  AJUSTAR PARA MESES
+  AND sexo_df.sexo_desc = 'Masculino'
+  AND raca_cor_df.racacor_desc = 'PRETA' 
+GROUP BY 
+    municipios_df.regiao_sigla,
+    ano_mes_df.ano,  AJUSTAR PARA MESES
+    cid_df.co_categ,  TEXT subcat
+    cid_df.no_categ  descricao
+ORDER BY 
+    municipios_df.regiao_sigla ASC,
+    ano_mes_df.ano ASC,  AJUSTAR PARA MESES
+    SUM(sia_df.pa_valapr) DESC;  NUMERIC(15,2)
+
+
+
+
+SELECT 
+    municipios_df.regiao,
+    ano_mes_df.mes,
+    cid_df.subcat,
+    cid_df.descricao,
+    SUM(sia_df.pa_qtdapr) AS procedimentos,
+    SUM(sia_df.pa_valapr) AS valor
+FROM sia_df
+JOIN municipios_df 
+    ON sia_df.pa_ufmun::INTEGER = (municipios_df.id_municipio / 10)
+JOIN ano_mes_df
+    ON RIGHT(sia_df.pa_cmp, 2) = ano_mes_df.mes
+JOIN cnes_df
+    ON sia_df.pa_coduni::VARCHAR = cnes_df.co_cnes
+JOIN sigtap_proced_df
+    ON sia_df.pa_proc_id = sigtap_proced_df.codigo
+JOIN cid_df
+    ON sia_df.pa_cidpri = cid_df.subcat
+JOIN sexo_df
+    ON sia_df.pa_sexo = sexo_df.pa_sexo
+JOIN raca_cor_df 
+    ON LPAD(sia_df.pa_racacor, 2, '0') = raca_cor_df.pa_racacor
+WHERE cnes_df.no_razao_social ILIKE '%UNIDADE BASICA%'
+  AND ano_mes_df.mes IN ('01', '02', '03', '04')
+  AND sexo_df.sexo_desc = 'Masculino'
+  AND raca_cor_df.racacor_desc = 'PRETA' 
+GROUP BY 
+    municipios_df.regiao,
+    ano_mes_df.mes,
+    cid_df.subcat,
+    cid_df.descricao
+ORDER BY 
+    municipios_df.regiao ASC,
+    ano_mes_df.mes ASC,
+    SUM(sia_df.pa_valapr) DESC;
+
+
+
+
