@@ -1,0 +1,159 @@
+
+VISÃO GERAL: O QUE ESSE SCRIPT de monitoramento de cpu  memoria ram FAZ?
+
+Este script é um monitor externo que:
+
+Espera a DAG orchestrator iniciar (checando o arquivo monit_start)
+
+Começa a medir CPU, RAM, Swap e Load Average
+
+Registra uma linha por minuto em um arquivo CSV
+
+Continua monitorando até o Airflow terminar (quando monit_stop é criado)
+
+Finaliza automaticamente
+
+
+Quando a orquestradora começa → cria o arquivo:
+
+/home/lucas/airflow/monit_start
+
+
+Quando a orquestradora termina → cria:
+
+/home/lucas/airflow/monit_stop
+
+🟦 O script fica monitorando isso continuamente.
+
+2. Função esperar_inicio()
+while not os.path.exists(SIGNAL_START):
+    time.sleep(1)
+
+
+📌 O que isso significa?
+
+A cada 1 segundo, o script verifica se o arquivo monit_start existe.
+
+Enquanto não existir → ele não faz nada.
+
+Assim que o arquivo surgir → o monitor começa exatamente no instante correto (quando a DAG inicia).
+
+📌 Por que isso é preciso?
+
+Porque Airflow garante que o arquivo só aparece no momento exato em que o processo começa.
+
+
+3. Função coletar_metricas()
+
+Essa é a parte mais importante.
+
+✔ Ela mede exatamente:
+1) % de uso da CPU
+cpu = psutil.cpu_percent(interval=1)
+
+
+Mede o uso total da CPU do sistema
+
+Espera 1 segundo para uma leitura precisa
+
+É uma média ponderada real do uso da máquina
+
+2) Memória RAM
+mem = psutil.virtual_memory()
+
+
+O script extrai:
+
+mem.total → RAM total física da máquina
+
+mem.used → RAM realmente usada
+
+mem.percent → percentual de uso da memória
+
+Convertendo para GB:
+
+mem.total / (1024**3)
+
+3) Swap
+swap = psutil.swap_memory()
+
+
+Coletando:
+
+swap usada em GB
+
+percentual de uso do swap
+
+4) Load Average
+load1, load5, load15 = psutil.getloadavg()
+
+
+Load average significa:
+
+1 min: carga instantânea
+
+5 min: tendência
+
+15 min: tendência de longo prazo
+
+Load representa quantos processos estavam aguardando CPU.
+
+4. Loop principal (while True:)
+
+O script escreve uma nova linha no CSV toda vez que coleta métricas:
+
+writer.writerow(data)
+f.flush()
+
+
+Então imprime no terminal:
+
+print(f"[{data['timestamp']}] CPU {data['cpu_percent']}% | RAM {data['mem_percent']}%")
+
+🧠 5. Condição de parada: esperar_fim()
+if os.path.exists(SIGNAL_STOP):
+    break
+
+
+📌 Isso significa:
+
+Quando o Airflow terminar
+
+Ele criará o arquivo monit_stop
+
+O monitor detecta e finaliza instantaneamente
+
+⏱️ 6. Intervalo de coleta: 1 minuto
+time.sleep(60)
+
+
+Esse é o tempo entre uma coleta e outra.
+
+Resumo do que é medido exatamente:
+Métrica	Como é medida	O que significa
+CPU (%)	psutil.cpu_percent(interval=1)	Uso total da CPU no instante
+RAM total (GB)	mem.total / 1024**3	Memória física da máquina
+RAM usada (GB)	mem.used / 1024**3	RAM efetiva em uso
+RAM (%)	mem.percent	% da RAM ocupada
+Swap usada (GB)	swap.used / 1024**3	Memória swap usada
+Swap (%)	swap.percent	% de swap usada
+Load average 1m/5m/15m	psutil.getloadavg()	Processos aguardando CPU (média)
+🧩 Por que esse monitoramento é extremamente preciso?
+
+Porque:
+
+É executado fora do Airflow, então mede o sistema real
+
+Sincroniza perfeitamente com o início e fim da DAG
+
+Usa psutil, a mesma biblioteca usada por ferramentas profissionais
+
+Mede o uso do sistema como um todo (não só Airflow)
+
+Intervalo configurável (1 min = ideal)
+
+Nenhuma DAG interfere no monitor
+
+
+
+
