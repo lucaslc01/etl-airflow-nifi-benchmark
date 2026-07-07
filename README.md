@@ -1,5 +1,15 @@
 # ETL Benchmark: Apache Airflow vs Apache NiFi
 
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue?logo=postgresql)
+![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-3.x-red?logo=apacheairflow)
+![Apache NiFi](https://img.shields.io/badge/Apache%20NiFi-2.x-green?logo=apache)
+![Apache Spark](https://img.shields.io/badge/Apache%20Spark-3.x-orange?logo=apachespark)
+![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?logo=docker)
+![Linux](https://img.shields.io/badge/Linux-Ubuntu-E95420?logo=ubuntu)
+![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-4169E1?logo=postgresql)
+
 > Comparative benchmark of Apache Airflow and Apache NiFi for large-scale ETL pipelines using Brazilian public healthcare datasets (DATASUS).
 
 ---
