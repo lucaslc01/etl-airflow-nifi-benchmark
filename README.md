@@ -6,19 +6,17 @@
 
 ## Overview
 
-This repository contains the source code, SQL scripts, Apache Airflow DAGs, Apache NiFi flows, documentation and benchmark results developed as the undergraduate thesis for the Computer Engineering degree at CEFET-MG.
+This repository contains the implementation, documentation and benchmark results of my undergraduate thesis developed for the Computer Engineering degree at **CEFET-MG**.
 
-The objective of this project was to compare Apache Airflow and Apache NiFi in equivalent ETL pipelines using real healthcare data, evaluating their performance, resource consumption and maintainability.
+The project compares **Apache Airflow** and **Apache NiFi** through equivalent ETL pipelines built to process real-world healthcare datasets from DATASUS.
 
----
+The benchmark evaluates:
 
-## Objectives
-
-- Build equivalent ETL pipelines using Apache Airflow and Apache NiFi.
-- Process large-scale healthcare datasets from DATASUS.
-- Compare execution time, CPU usage and memory consumption.
-- Evaluate workflow maintainability and scalability.
-- Document the architecture and benchmark methodology.
+- Execution time
+- CPU utilization
+- Memory consumption
+- Workflow maintainability
+- ETL orchestration
 
 ---
 
@@ -37,7 +35,7 @@ The objective of this project was to compare Apache Airflow and Apache NiFi in e
 
 ## Dataset
 
-Public datasets used during the experiments:
+The benchmark used Brazilian public healthcare datasets.
 
 - DATASUS (SIA)
 - CNES
@@ -45,32 +43,26 @@ Public datasets used during the experiments:
 - CID
 - Brazilian Municipalities
 
-More than **42 million healthcare records** were processed during the benchmark.
+**More than 42 million records** were processed during the experiments.
 
 ---
 
-## Repository Structure
+# Project Structure
 
 ```
 etl-airflow-nifi-benchmark
 │
 ├── airflow/
-│   └── Apache Airflow DAGs
 │
 ├── nifi/
-│   └── Apache NiFi templates
 │
 ├── sql/
-│   └── SQL scripts
 │
 ├── diagrams/
-│   └── Database and ETL architecture diagrams
 │
 ├── images/
-│   └── Benchmark graphs and screenshots
 │
 ├── docs/
-│   └── Thesis documentation
 │
 ├── README.md
 ├── LICENSE
@@ -79,54 +71,110 @@ etl-airflow-nifi-benchmark
 
 ---
 
-## Benchmark Results
+# ETL Architecture
+
+> Overall ETL architecture used during the benchmark.
+
+![Architecture](diagrams/etl-architecture.png)
+
+---
+
+# Database Model
+
+The following diagram illustrates the database structure adopted during the project.
+
+![Database Schema](diagrams/database-schema.png)
+
+---
+
+# Apache Airflow Pipeline
+
+The following DAG orchestrates the ETL workflow implemented using Apache Airflow.
+
+![Apache Airflow DAG](images/airflow-dag.png)
+
+---
+
+# Apache NiFi Pipeline
+
+The following process group implements the same ETL workflow using Apache NiFi.
+
+![Apache NiFi Flow](images/nifi-flow.png)
+
+---
+
+# Performance Evaluation
+
+The benchmark was executed multiple times under the same environment.
+
+## Average Execution Time
+
+| Tool | Average Time |
+|------|-------------:|
+| Apache Airflow | 01:41:14 |
+| Apache NiFi | 00:39:00 |
+
+---
+
+## CPU Usage
+
+![CPU Comparison](images/cpu-comparison.png)
+
+---
+
+## RAM Usage
+
+![RAM Comparison](images/ram-comparison.png)
+
+---
+
+## RAM Percentage
+
+![RAM Percentage](images/ram-percentage-comparison.png)
+
+---
+
+## System Load
+
+![System Load](images/system-load-comparison.png)
+
+---
+
+# Benchmark Summary
 
 | Metric | Apache Airflow | Apache NiFi |
 |---------|---------------:|------------:|
 | Average execution time | 01:41:14 | 00:39:00 |
-| Average CPU usage | ~3–4% | ~4–5% |
-| Average RAM usage | ~2.0–2.6 GB | ~2.0–2.7 GB |
-
-The complete benchmark graphs are available in the **images/** directory.
+| CPU usage | ~3–4% | ~4–5% |
+| RAM usage | ~2.0–2.6 GB | ~2.0–2.7 GB |
 
 ---
 
-## Repository Contents
+# Repository Contents
 
 This repository includes:
 
 - Apache Airflow DAGs
 - Apache NiFi templates
 - SQL scripts
-- Database documentation
 - Benchmark charts
-- Thesis document
+- Database documentation
 - ETL architecture
+- Undergraduate thesis
 
 ---
 
-## Reproducibility
+# Reproducibility
 
-The original benchmark was executed using the infrastructure provided by CEFET-MG and the Centro de Inteligência Territorial (CIT/UFMG), including Hadoop cluster resources.
+The experiments were executed using the infrastructure provided by **CEFET-MG** and the **Centro de Inteligência Territorial (CIT/UFMG)**.
 
-Because this infrastructure is not publicly available, the complete execution environment cannot be fully reproduced using only this repository.
+The original environment included Hadoop cluster resources that are not publicly available.
 
-This repository aims to document the project implementation, architecture and benchmark results.
-
----
-
-## Future Improvements
-
-Possible future developments include:
-
-- Containerized local environment using Docker Compose
-- Cloud-native deployment (AWS or Azure)
-- Streaming ETL benchmark using Apache Kafka
-- Interactive dashboards for performance analysis
+For this reason, this repository focuses on documenting the implementation, architecture and benchmark results rather than providing a fully reproducible environment.
 
 ---
 
-## References
+# References
 
 - Apache Airflow
 - Apache NiFi
@@ -136,7 +184,7 @@ Possible future developments include:
 
 ---
 
-## Author
+# Author
 
 **Lucas Loscheider Reis Muniz**
 
