@@ -83,7 +83,7 @@ etl-airflow-nifi-benchmark
 
 The following diagram illustrates the database structure adopted during the project.
 
-![Database Schema](diagrams/database-schema.png)
+![Database Schema](diagrams/tabelas_dados.png)
 
 ---
 
