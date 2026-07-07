@@ -1,31 +1,24 @@
 # ETL Benchmark: Apache Airflow vs Apache NiFi
 
-> Performance benchmark of Apache Airflow and Apache NiFi for large-scale ETL pipelines using public Brazilian healthcare datasets from DATASUS.
+> Comparative benchmark of Apache Airflow and Apache NiFi for large-scale ETL pipelines using Brazilian public healthcare datasets (DATASUS).
 
 ---
 
 ## Overview
 
-This repository contains the source code, documentation and results of my undergraduate thesis in Computer Engineering at **CEFET-MG**.
+This repository contains the source code, SQL scripts, Apache Airflow DAGs, Apache NiFi flows, documentation and benchmark results developed as the undergraduate thesis for the Computer Engineering degree at CEFET-MG.
 
-The objective of this project was to compare two of the most widely used Data Engineering tools for ETL workflows:
-
-- Apache Airflow
-- Apache NiFi
-
-The comparison was performed using real public healthcare datasets from DATASUS, evaluating execution time, CPU usage, memory consumption, maintainability and scalability.
+The objective of this project was to compare Apache Airflow and Apache NiFi in equivalent ETL pipelines using real healthcare data, evaluating their performance, resource consumption and maintainability.
 
 ---
 
 ## Objectives
 
-- Compare Apache Airflow and Apache NiFi
-- Build equivalent ETL pipelines
-- Process large public datasets
-- Measure execution time
-- Measure CPU usage
-- Measure RAM consumption
-- Evaluate maintainability and scalability
+- Build equivalent ETL pipelines using Apache Airflow and Apache NiFi.
+- Process large-scale healthcare datasets from DATASUS.
+- Compare execution time, CPU usage and memory consumption.
+- Evaluate workflow maintainability and scalability.
+- Document the architecture and benchmark methodology.
 
 ---
 
@@ -34,9 +27,9 @@ The comparison was performed using real public healthcare datasets from DATASUS,
 | Category | Technologies |
 |-----------|-------------|
 | Programming | Python, SQL |
-| Databases | PostgreSQL, Hadoop Hive |
 | ETL | Apache Airflow, Apache NiFi |
-| Big Data | Apache Spark |
+| Big Data | Apache Spark, Hadoop Hive |
+| Database | PostgreSQL |
 | Infrastructure | Docker, Linux |
 | Version Control | Git, Bitbucket |
 
@@ -44,89 +37,57 @@ The comparison was performed using real public healthcare datasets from DATASUS,
 
 ## Dataset
 
-The experiments used public Brazilian healthcare datasets.
+Public datasets used during the experiments:
 
-Main sources:
-
-- DATASUS
+- DATASUS (SIA)
 - CNES
 - SIGTAP
 - CID
 - Brazilian Municipalities
 
-Approximately **42 million healthcare records** were processed during the benchmark.
+More than **42 million healthcare records** were processed during the benchmark.
 
 ---
 
-## Architecture
+## Repository Structure
 
-> Architecture diagram coming soon.
-
----
-
-## Project Structure
-
-```text
+```
 etl-airflow-nifi-benchmark
 │
 ├── airflow/
-│   └── dags/
+│   └── Apache Airflow DAGs
 │
 ├── nifi/
-│   └── templates/
+│   └── Apache NiFi templates
 │
 ├── sql/
+│   └── SQL scripts
 │
 ├── diagrams/
+│   └── Database and ETL architecture diagrams
 │
 ├── images/
-│ 
-└── docs/
+│   └── Benchmark graphs and screenshots
+│
+├── docs/
+│   └── Thesis documentation
+│
+├── README.md
+├── LICENSE
+└── .gitignore
 ```
 
 ---
 
-## ETL Workflow
+## Benchmark Results
 
-The benchmark evaluated the entire ETL lifecycle.
+| Metric | Apache Airflow | Apache NiFi |
+|---------|---------------:|------------:|
+| Average execution time | 01:41:14 | 00:39:00 |
+| Average CPU usage | ~3–4% | ~4–5% |
+| Average RAM usage | ~2.0–2.6 GB | ~2.0–2.7 GB |
 
-1. Data extraction
-2. Data cleaning
-3. Data transformation
-4. Data integration
-5. Data loading
-6. SQL analytics
-7. Performance monitoring
-
----
-
-## Performance Results
-
-The experiments were executed multiple times under the same environment.
-
-### Average Execution Time
-
-| Tool | Average Time |
-|------|-------------:|
-| Apache Airflow | 01:41:14 |
-| Apache NiFi | 00:39:00 |
-
----
-
-### Resource Consumption
-
-| Metric | Airflow | NiFi |
-|--------|---------:|------:|
-| CPU Usage | ~3–4% | ~4–5% |
-| RAM Usage | ~2.0–2.6 GB | ~2.0–2.7 GB |
-
----
-
-## Key Findings
-
-- Apache NiFi achieved the lowest execution time.
-- Apache Airflow provided superior workflow orchestration and maintainability.
-- Both tools are suitable for enterprise ETL pipelines depending on project requirements.
+The complete benchmark graphs are available in the **images/** directory.
 
 ---
 
@@ -134,13 +95,13 @@ The experiments were executed multiple times under the same environment.
 
 This repository includes:
 
-- ETL source code
-- Airflow DAGs
-- NiFi templates
+- Apache Airflow DAGs
+- Apache NiFi templates
 - SQL scripts
-- Documentation
-- Performance results
-- Architecture diagrams
+- Database documentation
+- Benchmark charts
+- Thesis document
+- ETL architecture
 
 ---
 
@@ -150,26 +111,27 @@ The original benchmark was executed using the infrastructure provided by CEFET-M
 
 Because this infrastructure is not publicly available, the complete execution environment cannot be fully reproduced using only this repository.
 
-The purpose of this repository is to document the project architecture, implementation, methodology and benchmark results.
+This repository aims to document the project implementation, architecture and benchmark results.
 
 ---
 
 ## Future Improvements
 
-- Dockerized local environment
-- Cloud deployment
-- Apache Kafka integration
-- Real-time ETL benchmark
-- Power BI dashboard
+Possible future developments include:
+
+- Containerized local environment using Docker Compose
+- Cloud-native deployment (AWS or Azure)
+- Streaming ETL benchmark using Apache Kafka
+- Interactive dashboards for performance analysis
 
 ---
 
 ## References
 
-- Apache Airflow Documentation
-- Apache NiFi Documentation
-- Apache Spark Documentation
-- PostgreSQL Documentation
+- Apache Airflow
+- Apache NiFi
+- Apache Spark
+- PostgreSQL
 - DATASUS
 
 ---
@@ -180,5 +142,5 @@ The purpose of this repository is to document the project architecture, implemen
 
 Computer Engineering — CEFET-MG
 
-LinkedIn:
-https://www.linkedin.com/in/lucas-loscheider
+- LinkedIn: https://www.linkedin.com/in/lucas-loscheider
+- GitHub: https://github.com/lucaslc01
