@@ -5,15 +5,12 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue?logo=postgresql)
 ![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-3.x-red?logo=apacheairflow)
 ![Apache NiFi](https://img.shields.io/badge/Apache%20NiFi-2.x-green?logo=apache)
-![Apache Spark](https://img.shields.io/badge/Apache%20Spark-3.x-orange?logo=apachespark)
 ![Linux](https://img.shields.io/badge/Linux-Ubuntu-E95420?logo=ubuntu)
 ![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-4169E1?logo=postgresql)
 
 ![ETL](https://img.shields.io/badge/ETL-Data%20Engineering-blue)
 
 ![Big Data](https://img.shields.io/badge/Big%20Data-Hadoop-orange)
-
-![Benchmark](https://img.shields.io/badge/Benchmark-Performance-success)
 
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 
