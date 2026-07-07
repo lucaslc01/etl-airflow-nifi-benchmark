@@ -1,0 +1,564 @@
+nome da tabela: sia_df
+
+descrição: Sistema de Informações Ambulatoriais do SUS
+
+fonte: ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/PAMG2401a.dbc
+ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/PAMG2401b.dbc
+ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/PAMG2402a.dbc
+ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/PAMG2402b.dbc
+ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/PAMG2403a.dbc
+ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/PAMG2403b.dbc
+ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/PAMG2404a.dbc
+ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/PAMG2404b.dbc
+ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/PAMG2405a.dbc
+ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/PAMG2405b.dbc
+ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/PAMG2406a.dbc
+ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/PAMG2406b.dbc
+
+tamanho: 9.68 Gigabytes
+
+número de registros: 42.426.633
+
+comando DDL :
+
+CREATE TABLE sia_df (
+    PA_CODUNI      BIGINT,
+    PA_GESTAO      VARCHAR(10),
+    PA_CONDIC      VARCHAR(5),
+    PA_UFMUN       VARCHAR(10),
+    PA_REGCT       VARCHAR(10),
+    PA_INCOUT      VARCHAR(10),
+    PA_INCURG      VARCHAR(10),
+    PA_TPUPS       VARCHAR(5),
+    PA_TIPPRE      VARCHAR(5),
+    PA_MN_IND      VARCHAR(5),
+    PA_CNPJCPF     VARCHAR(20),
+    PA_CNPJMNT     VARCHAR(20),
+    PA_CNPJ_CC     VARCHAR(20),
+    PA_MVM         VARCHAR(10),
+    PA_CMP         VARCHAR(10),
+    PA_PROC_ID     VARCHAR(15),
+    PA_TPFIN       VARCHAR(5),
+    PA_SUBFIN      VARCHAR(10),
+    PA_NIVCPL      VARCHAR(5),
+    PA_DOCORIG     VARCHAR(20),
+    PA_AUTORIZ     VARCHAR(20),
+    PA_CNSMED      VARCHAR(20),
+    PA_CBOCOD      VARCHAR(10),
+    PA_MOTSAI      VARCHAR(5),
+    PA_OBITO       VARCHAR(5),
+    PA_ENCERR      VARCHAR(5),
+    PA_PERMAN      VARCHAR(5),
+    PA_ALTA        VARCHAR(5),
+    PA_TRANSF      VARCHAR(5),
+    PA_CIDPRI      VARCHAR(10),
+    PA_CIDSEC      VARCHAR(10),
+    PA_CIDCAS      VARCHAR(10),
+    PA_CATEND      VARCHAR(5),
+    PA_IDADE       VARCHAR(5),
+    IDADEMIN       VARCHAR(5),
+    IDADEMAX       VARCHAR(5),
+    PA_FLIDADE     VARCHAR(5),
+    PA_SEXO        CHAR(1),
+    PA_RACACOR     VARCHAR(5),
+    PA_MUNPCN      VARCHAR(10),
+    PA_QTDPRO      NUMERIC(10,2),
+    PA_QTDAPR      NUMERIC(10,2),
+    PA_VALPRO      NUMERIC(15,2),
+    PA_VALAPR      NUMERIC(15,2),
+    PA_UFDIF       VARCHAR(5),
+    PA_MNDIF       VARCHAR(5),
+    PA_DIF_VAL     NUMERIC(15,2),
+    NU_VPA_TOT     NUMERIC(15,2),
+    NU_PA_TOT      NUMERIC(15,2),
+    PA_INDICA      VARCHAR(5),
+    PA_CODOCO      VARCHAR(10),
+    PA_FLQT        VARCHAR(5),
+    PA_FLER        VARCHAR(5),
+    PA_ETNIA       VARCHAR(10),
+    PA_VL_CF       NUMERIC(15,2),
+    PA_VL_CL       NUMERIC(15,2),
+    PA_VL_INC      NUMERIC(15,2),
+    PA_SRV_C       VARCHAR(10),
+    PA_INE         VARCHAR(15),
+    PA_NAT_JUR     VARCHAR(10)
+);
+
+
+-------------------------------------------------------------------------------------------------------
+
+
+nome da tabela:  municipios_df
+
+fonte: https://servicodados.ibge.gov.br/api/v1/localidades/
+estados/31/municipios
+
+tamanho: 74.4 KBytes
+
+número de registros: 853
+
+comando DDL: 
+
+CREATE TABLE municipios_df (
+    id_municipio       INTEGER,
+    nome_municipio     TEXT,
+    id_microrregiao    INTEGER,
+    nome_microrregiao  TEXT,
+    id_mesorregiao     INTEGER,
+    nome_mesorregiao   TEXT,
+    uf                 CHAR(2),
+    nome_uf            TEXT,
+    regiao             TEXT
+);
+
+-------------------------------------------------------------------------------------------------------
+
+
+
+nome da tabela: cnes_df
+
+descrição: Cadastro Nacional de Estabelecimentos de Saúde
+
+fonte: ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/ST/STMG2401.dbc
+ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/ST/STMG2402.dbc
+ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/ST/STMG2403.dbc
+ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/ST/STMG2404.dbc
+ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/ST/STMG2405.dbc
+ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/ST/STMG2406.dbc
+
+tamanho: 992 megabytes
+
+número de registros: 3.145.949
+
+comando DDL:
+
+CREATE TABLE cnes_df (
+    co_unidade                TEXT,
+    co_cnes                   TEXT,
+    nu_cnpj_mantenedora       TEXT,
+    tp_pfpj                   TEXT,
+    nivel_dep                 TEXT,
+    no_razao_social           TEXT,
+    no_fantasia               TEXT,
+    no_logradouro             TEXT,
+    nu_endereco               TEXT,
+    no_complemento            TEXT,
+    no_bairro                 TEXT,
+    co_cep                    TEXT,
+    co_regiao_saude           TEXT,
+    co_micro_regiao           TEXT,
+    co_distrito_sanitario     TEXT,
+    co_distrito_administrativo TEXT,
+    nu_telefone               TEXT,
+    nu_fax                    TEXT,
+    no_email                  TEXT,
+    nu_cpf                    TEXT,
+    nu_cnpj                   TEXT,
+    co_atividade              TEXT,
+    co_clientela              TEXT,
+    nu_alvara                 TEXT,
+    dt_expedicao              TEXT,
+    tp_orgao_expedidor        TEXT,
+    dt_val_lic_sani           TEXT,
+    tp_lic_sani               TEXT,
+    tp_unidade                TEXT,
+    co_turno_atendimento      TEXT,
+    co_estado_gestor          TEXT,
+    co_municipio_gestor       TEXT,
+    dt_atualizacao            TEXT, 
+    co_usuario                TEXT,
+    co_cpfdiretorcln          TEXT,
+    reg_diretorcln            TEXT,
+    st_adesao_filantrop       TEXT,
+    co_motivo_desab           TEXT,
+    no_url                    TEXT,
+    nu_latitude               TEXT, 
+    nu_longitude              TEXT,
+    dt_atu_geo                TEXT,
+    no_usuario_geo            TEXT,
+    co_natureza_jur           TEXT,
+    tp_estab_sempre_aberto    TEXT,
+    st_geracredito_gerente_sgif TEXT,
+    st_conexao_internet       TEXT,
+    co_tipo_unidade           TEXT,
+    no_fantasia_abrev         TEXT,
+    tp_gestao                 TEXT,
+    dt_atualizacao_origem     TEXT,
+    co_tipo_estabelecimento   TEXT,
+    co_atividade_principal    TEXT,
+    st_contrato_formalizado   TEXT,
+    co_tipo_abrangencia       TEXT
+);
+
+
+-------------------------------------------------------------------------------------------------------
+
+
+
+nome da tabela: sigtap_proced_df
+
+descrição: Sistema de Gerenciamento da Tabela de Procedimentos
+
+fonte: http://sigtap.datasus.gov.br/tabela-unificada/app/sec/inicio.jsp
+
+tamanho: 246 Kbytes
+
+número de registros: 3631
+
+comando DDL: 
+
+CREATE TABLE sigtap_proced_df (
+    codigo              VARCHAR(20) PRIMARY KEY,
+    procedimento        TEXT NOT NULL,
+    total_ambulatorial  NUMERIC(12,2) NOT NULL,
+    total_hospitalar    NUMERIC(12,2) NOT NULL
+);
+
+-------------------------------------------------------------------------------------------------------
+
+
+
+nome da tabela: cid_df
+
+descrição: Código Internacional de Doenças
+
+fonte: http://www2.datasus.gov.br/cid10/V2008/descrcnv.htm
+
+tamanho: 1.31 megabytes
+
+número de registros: 12447
+
+comando DDL:
+
+CREATE TABLE cid_df (
+    subcat TEXT,
+    classif TEXT,
+    restrsexo TEXT,
+    causaobito TEXT,
+    descricao TEXT,
+    descrabrev TEXT,
+    refer TEXT,
+    excluidos TEXT,
+    coluna_extra TEXT
+);
+
+-------------------------------------------------------------------------------------------------------
+
+
+
+nome da tabela: ano_mes_df
+
+fonte: (criada pelo autor)
+
+tamanho: (criada pelo autor. Não é feito o upload) 
+
+número de registros: 12
+
+comando DDL:
+
+CREATE TABLE ano_mes_df (
+    mes CHAR(2) PRIMARY KEY,
+    mes_nome VARCHAR(20),
+    mes_abrev CHAR(3),
+    trimestre INTEGER,
+    semestre INTEGER
+);
+
+INSERT INTO ano_mes_df (mes, mes_nome, mes_abrev, trimestre, semestre) VALUES
+('01', 'JANEIRO', 'JAN', 1, 1),
+('02', 'FEVEREIRO', 'FEV', 1, 1),
+('03', 'MARÇO', 'MAR', 1, 1),
+('04', 'ABRIL', 'ABR', 2, 1),
+('05', 'MAIO', 'MAI', 2, 1),
+('06', 'JUNHO', 'JUN', 2, 1),
+('07', 'JULHO', 'JUL', 3, 2),
+('08', 'AGOSTO', 'AGO', 3, 2),
+('09', 'SETEMBRO', 'SET', 3, 2),
+('10', 'OUTUBRO', 'OUT', 4, 2),
+('11', 'NOVEMBRO', 'NOV', 4, 2),
+('12', 'DEZEMBRO', 'DEZ', 4, 2);
+
+-------------------------------------------------------------------------------------------------------
+
+
+nome da tabela: cbocod_df
+
+descrição: Codigo Brasileiro de Ocupações
+
+fonte: ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Auxiliar/TAB_SIA.zip
+
+tamanho: 107 Kbytes
+
+número de registros: 2812
+
+comando DDL: 
+
+CREATE TABLE cbocod_df (
+    cbo TEXT PRIMARY KEY,
+    ds_cbo TEXT
+);
+
+-------------------------------------------------------------------------------------------------------
+
+
+
+nome da tabela: tpups_df
+
+descrição: tipos de estabelecimentos de saúde
+
+fonte: SIASUS - Sistema de Informações Ambulatoriais dos SUS), Modalidade:␣
+↪Arquivos auxiliares para tabulação, Tipo de Arquivo: Arquivo de definição do␣
+↪Tabwin
+
+tamanho: (criada pelo autor. Não é feito o upload)
+
+número de registros: 42
+
+comando DDL: 
+
+CREATE TABLE tpups_df (
+    pa_tpups VARCHAR(5) PRIMARY KEY,
+    tpups_desc TEXT
+);
+
+INSERT INTO tpups_df (pa_tpups, tpups_desc) VALUES
+('74', 'ACADEMIA DA SAUDE'),
+('81', 'CENTRAL DE REGULACAO'),
+('76', 'CENTRAL DE REGULACAO MEDICA DAS URGENCIAS'),
+('71', 'CENTRO DE APOIO A SAUDE DA FAMILIA-CASF'),
+('69', 'CENTRO DE ATENCAO HEMOTERAPICA E/OU HEMATOLOGICA'),
+('70', 'CENTRO DE ATENCAO PSICOSSOCIAL-CAPS'),
+('61', 'CENTRO DE PARTO NORMAL'),
+('02', 'CENTRO DE SAUDE/UNIDADE BASICA DE SAUDE'),
+('64', 'CENTRAL DE REGULACAO DE SERVICOS DE SAUDE'),
+('36', 'CLINICA ESPECIALIZADA/AMBULATORIO ESPECIALIZADO'),
+('22', 'CONSULTORIO'),
+('60', 'COOPERATIVA'),
+('43', 'FARMACIA'),
+('07', 'HOSPITAL ESPECIALIZADO'),
+('05', 'HOSPITAL GERAL'),
+('62', 'HOSPITAL DIA'),
+('67', 'LABORATORIO CENTRAL DE SAUDE PUBLICA - LACEN'),
+('80', 'ORIO DE SAUDE PUBLICA'),
+('04', 'POLICLINICA'),
+('79', 'OFICINA ORTOPEDICA'),
+('01', 'POSTO DE SAUDE'),
+('73', 'PRONTO ANTEDIMENTO'),
+('21', 'PRONTO SOCORRO ESPECIALIZADO'),
+('20', 'PRONTO SOCORRO GERAL'),
+('68', 'SECRETARIA DE SAUDE'),
+('77', 'SERVICO DE ATENCAO DOMICILIAR ISOLADO(HOME CARE)'),
+('63', 'UNIDADE AUTORIZADORA'),
+('72', 'UNIDADE DE ATENÇAO E SAUDE INDIGENA'),
+('78', 'UNIDADE DE ATENCAO EM REGIME RESIDENCIAL'),
+('39', 'UNIDADE DE SERVICO DE APOIO DE DIAGNOSE E TERAPIA'),
+('45', 'UNIDADE DE SAUDE DA FAMILIA'),
+('50', 'UNIDADE DE VIGILANCIA EM SAUDE'),
+('65', 'UNIDADE DE VIGILANCIA EPIDEMIOLOGIA (ANTIGO)'),
+('66', 'UNIDADE DE VIGILANCIA SANITARIA (ANTIGO)'),
+('15', 'UNIDADE MISTA'),
+('42', 'UNIDADE MOVEL DE NIVEL PRE-HOSP-URGENCIA/EMERGENCIA'),
+('32', 'UNIDADE MOVEL FLUVIAL'),
+('40', 'UNIDADE MOVEL TERRESTRE'),
+('75', 'TELESAUDE'),
+('09', 'PRONTO SOCORRO DE HOSPITAL GERAL (ANTIGO)'),
+('12', 'PRONTO SOCORRO TRAUMATO-ORTOPEDICO (ANTIGO)'),
+('-99', 'TIPO ESTABELECIMENTO NAO INFORMADO');
+
+-------------------------------------------------------------------------------------------------------
+
+
+
+nome da tabela: catend_df
+
+descrição: Caráter de Atendimento
+
+fonte: SIASUS - Sistema de Informações Ambulatoriais dos SUS), Modalidade:␣
+↪Arquivos auxiliares para tabulação, Tipo de Arquivo: Arquivo de definição do␣
+↪Tabwin
+# /TAB_SIA/CNV/CARAT_AT.CNV
+
+tamanho: (criada pelo autor. Não é feito o upload)
+
+número de registros: 18
+
+comando DDL:
+
+CREATE TABLE catend_df (
+    pa_catend VARCHAR(3) PRIMARY KEY,
+    catend_desc TEXT
+);
+
+INSERT INTO catend_df (pa_catend, catend_desc) VALUES
+('01', 'ELETIVO'),
+('02', 'URGENCIA'),
+('03', 'ACIDENTE NO LOCAL DE TRABALHO OU A SERVICO DA EMPRESA'),
+('04', 'ACIDENTE NO TRAJETO PARA O TRABALHO'),
+('05', 'OUTROS TIPOS DE ACIDENTE DE TRANSITO'),
+('06', 'OUTROS TIPOS DE LESOES/ENVENENAMENTOS (AGENTES FISICOS/QUIMICOS)'),
+('99', 'INFORMACAO INEXISTENTE (BPA-C)'),
+('00', 'CARATER DE ATENDIMENTO NAO INFORMADO'),
+('07', 'CARATER DE ATENDIMENTO INVALIDO'),
+('10', 'CARATER DE ATENDIMENTO INVALIDO'),
+('12', 'CARATER DE ATENDIMENTO INVALIDO'),
+('20', 'CARATER DE ATENDIMENTO INVALIDO'),
+('53', 'CARATER DE ATENDIMENTO INVALIDO'),
+('54', 'CARATER DE ATENDIMENTO INVALIDO'),
+('57', 'CARATER DE ATENDIMENTO INVALIDO'),
+('0-', 'CARATER DE ATENDIMENTO INVALIDO'),
+('0E', 'CARATER DE ATENDIMENTO INVALIDO'),
+('0U', 'CARATER DE ATENDIMENTO INVALIDO');
+
+-------------------------------------------------------------------------------------------------------
+
+
+
+nome da tabela: docorig_df
+
+descrição: tipo de documento de origem da produção ambulatorial
+
+fonte: SIASUS - Sistema de Informações Ambulatoriais dos SUS), Modalidade:␣
+↪Arquivos auxiliares para tabulação, Tipo de Arquivo: Arquivo de definição do␣
+↪Tabwin
+# /TAB_SIA/CNV/DOCORIG.CNV
+
+tamanho: (criada pelo autor. Não é feito o upload)
+
+número de registros: 6
+
+comando DDL:
+
+CREATE TABLE docorig_df (
+    pa_docorig CHAR(1) PRIMARY KEY,
+    docorig_desc TEXT
+);
+
+INSERT INTO docorig_df (pa_docorig, docorig_desc) VALUES
+('C', 'BPA - Consolidado'),         -- BPA-C
+('I', 'BPA - Individualizado'),     -- BPA-I
+('P', 'APAC - Procedimento Principal'),
+('S', 'APAC - Procedimento Secundario'),
+('A', 'RAAS - Atencao Domiciliar'),
+('B', 'RAAS - Psicossocial');
+
+-------------------------------------------------------------------------------------------------------
+
+
+
+nome da tabela: sexo_df
+
+fonte: SIASUS - Sistema de Informações Ambulatoriais dos SUS), Modalidade:␣
+↪Arquivos auxiliares para tabulação, Tipo de Arquivo: Arquivo de definição do␣
+↪Tabwin
+# /TAB_SIA/CNV/SEXO.CNV
+
+tamanho: (criada pelo autor. Não é feito o upload)
+
+número de registros: 3
+
+comando DDL:
+
+CREATE TABLE sexo_df (
+    pa_sexo CHAR(1) PRIMARY KEY,
+    sexo_desc TEXT
+);
+
+INSERT INTO sexo_df (pa_sexo, sexo_desc) VALUES
+('0', 'Nao exigido'),
+('M', 'Masculino'),
+('F', 'Feminino');
+
+-------------------------------------------------------------------------------------------------------
+
+
+
+nome da tabela: raca_cor_df
+
+fonte: SIASUS - Sistema de Informações Ambulatoriais dos SUS), Modalidade:␣
+↪Arquivos auxiliares para tabulação, Tipo de Arquivo: Arquivo de definição do␣
+↪Tabwin
+# /TAB_SIA/CNV/RACA_COR.CNV
+
+tamanho: (criada pelo autor. Não é feito o upload)
+
+número de registros: 14
+
+comando DDL:
+
+CREATE TABLE raca_cor_df (
+    pa_racacor VARCHAR(3) PRIMARY KEY,
+    racacor_desc TEXT
+);
+
+INSERT INTO raca_cor_df (pa_racacor, racacor_desc) VALUES
+('01', 'BRANCA'),
+('02', 'PRETA'),
+('03', 'PARDA'),
+('04', 'AMARELA'),
+('05', 'INDIGENA'),
+('99', 'SEM INFORMACAO'),
+('06', 'RACA/COR=06 (INDEVIDO)'),
+('09', 'RACA/COR=09 (INDEVIDO)'),
+('1M', 'RACA/COR (OUTROS INDEVIDOS)'),
+('1G', 'RACA/COR (OUTROS INDEVIDOS)'),
+('1C', 'RACA/COR (OUTROS INDEVIDOS)'),
+('DE', 'RACA/COR (OUTROS INDEVIDOS)'),
+('D', 'RACA/COR (OUTROS INDEVIDOS)'),
+('87', 'RACA/COR (OUTROS INDEVIDOS)');
+
+-------------------------------------------------------------------------------------------------------
+
+
+
+nome da tabela: motsai_df
+
+descrição: motivos de saída
+
+fonte: SIASUS - Sistema de Informações Ambulatoriais dos SUS), Modalidade: ↪Arquivos auxiliares para tabulação, Tipo de Arquivo: Arquivo de definição do ↪Tabwin
+# /TAB_SIA/CNV/MOTSAIPE.CNV
+
+tamanho: (criada pelo autor. Não é feito o upload)
+
+número de registros: 22
+
+comando DDL:
+
+CREATE TABLE motsai_df (
+    pa_motsai VARCHAR(3) PRIMARY KEY,
+    motsai_desc TEXT
+);
+
+INSERT INTO motsai_df (pa_motsai, motsai_desc) VALUES
+('11', 'ALTA CURADO'),
+('12', 'ALTA MELHORADO'),
+('13', 'ALTA DA PUERPERA E PERMANENCIA DO RECEM NASCIDO'),
+('14', 'ALTA A PEDIDO'),
+('15', 'ALTA COM PREVISAO DE RETORNO P/ ACOMPAN. DO PACIENTE'),
+('16', 'ALTA POR EVASAO'),
+('17', 'ALTA DA PUERPERA E RECEM NASCIDO'),
+('18', 'ALTA POR OUTROS MOTIVOS'),
+('21', 'PERMANENCIA POR CARACTERISTICAS PROPRIAS DA DOENCA'),
+('22', 'PERMANENCIA POR INTERCORRENCIA'),
+('23', 'PERMANENCIA POR IMPOSSIBILIDADE SOCIO-FAMILIAR'),
+('24', 'PERMANENCIA POR PROCESSO-DOACAO DE ORGAOS - DOADOR VIVO'),
+('25', 'PERMANENCIA POR PROCESSO-DOACAO DE ORGAOS - DOADOR MORTO'),
+('26', 'PERMANENCIA POR MUDANCA DE PROCEDIMENTO'),
+('27', 'PERMANENCIA POR REOPERACAO'),
+('28', 'PERMANENCIA POR OUTROS MOTIVOS'),
+('31', 'TRANSFERIDO PARA OUTRO ESTABELECIMENTO'),
+('41', 'OBITO COM DECLARACAO DE OBITO FORNECIDO PELO MEDICO ASSISTENTE'),
+('42', 'OBITO COM DECLARACAO DE OBITO FORNECIDA PELO IML'),
+('43', 'OBITO COM DECLARACAO DE OBITO FORNECIDA PELO SVO'),
+('51', 'ENCERRAMENTO ADMINISTRATIVO'),
+('00', 'PRODUCAO SEM MOTIVO DE SAIDA (BPA-C / BPA-I)');
+
+
+
+
+
+
+
+
+
+
+
