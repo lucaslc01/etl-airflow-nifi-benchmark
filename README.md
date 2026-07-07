@@ -77,15 +77,11 @@ etl-airflow-nifi-benchmark
 │
 ├── sql/
 │
-├── scripts/
-│
 ├── diagrams/
 │
 ├── images/
-│
-├── docs/
-│
-└── sample_data/
+│ 
+└── docs/
 ```
 
 ---
