@@ -1,6 +1,5 @@
 # ETL Benchmark: Apache Airflow vs Apache NiFi
 
-![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue?logo=postgresql)
 ![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-3.x-red?logo=apacheairflow)
