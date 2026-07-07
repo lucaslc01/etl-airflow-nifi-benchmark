@@ -9,6 +9,16 @@
 ![Linux](https://img.shields.io/badge/Linux-Ubuntu-E95420?logo=ubuntu)
 ![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-4169E1?logo=postgresql)
 
+![ETL](https://img.shields.io/badge/ETL-Data%20Engineering-blue)
+
+![Big Data](https://img.shields.io/badge/Big%20Data-Hadoop-orange)
+
+![Benchmark](https://img.shields.io/badge/Benchmark-Performance-success)
+
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+
+![Project](https://img.shields.io/badge/Project-Bachelor%20Thesis-purple)
+
 > Comparative benchmark of Apache Airflow and Apache NiFi for large-scale ETL pipelines using Brazilian public healthcare datasets (DATASUS).
 
 ---
