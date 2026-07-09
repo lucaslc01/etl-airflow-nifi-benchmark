@@ -90,7 +90,26 @@ etl-airflow-nifi-benchmark
 
 > Overall ETL architecture used during the benchmark.
 
-![Architecture](diagrams/etl-architecture.png)
+                 ┌───────────────────────┐
+                 │ DATASUS Public Data   │
+                 └───────────┬───────────┘
+                             │
+      ┌──────────────────────┴──────────────────────┐
+      │                                             │
+┌──────────────┐                          ┌────────────────┐
+│ Apache       │                          │ Apache         │
+│ Airflow      │                          │ NiFi           │
+└──────┬───────┘                          └──────┬─────────┘
+       │                                         │
+       └──────────────────┬──────────────────────┘
+                          │
+                   ┌───────────────┐
+                   │ PostgreSQL    │
+                   └──────┬────────┘
+                          │
+                 SQL Analytical Query
+                          │
+                   Performance Metrics
 
 ---
 
