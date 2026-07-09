@@ -39,12 +39,12 @@ The benchmark evaluates:
 
 | Category | Technologies |
 |-----------|-------------|
-| Programming | Python, SQL |
+| Programming | Python, SQL, NoSQL |
 | ETL | Apache Airflow, Apache NiFi |
-| Big Data | Apache Spark, Hadoop Hive |
+| Big Data | Hadoop Hive |
 | Database | PostgreSQL |
-| Infrastructure | Docker, Linux |
-| Version Control | Git, Bitbucket |
+| Infrastructure | Linux |
+| Version Control | Git |
 
 ---
 
