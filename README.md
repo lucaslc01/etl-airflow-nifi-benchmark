@@ -115,17 +115,57 @@ The following diagram illustrates the database structure adopted during the proj
 
 # Apache Airflow Pipeline
 
-The following DAG orchestrates the ETL workflow implemented using Apache Airflow.
+Apache Airflow was used to orchestrate the complete ETL workflow. Each DAG was responsible for importing, transforming or loading a specific dataset into PostgreSQL before executing the analytical query.
 
-![Apache Airflow DAG](images/airflow-dag.png)
+```mermaid
+flowchart TD
+
+A[import_municipios_df]
+B[import_cbocod_df]
+C[import_cid_df]
+D[import_sigtap_proced_df]
+E[import_cnes_df]
+F[import_sia_df]
+
+A --> G[sus_orchestrator]
+B --> G
+C --> G
+D --> G
+E --> G
+F --> G
+
+G --> H[consulta_sus_export]
+
+H --> I[(PostgreSQL)]
+```
 
 ---
 
 # Apache NiFi Pipeline
 
-The following process group implements the same ETL workflow using Apache NiFi.
+Apache NiFi was used to implement the same ETL process using independent process groups, allowing a fair performance comparison with Apache Airflow.
 
-![Apache NiFi Flow](images/nifi-flow.png)
+```mermaid
+flowchart TD
+
+A[Municipalities Process Group]
+B[CBO Process Group]
+C[CID Process Group]
+D[SIGTAP Process Group]
+E[CNES Process Group]
+F[SIA Process Group]
+
+A --> G[PostgreSQL Query]
+B --> G
+C --> G
+D --> G
+E --> G
+F --> G
+
+G --> H[(PostgreSQL)]
+
+H --> I[Analytical SQL Query]
+```
 
 ---
 
