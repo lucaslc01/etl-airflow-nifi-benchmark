@@ -133,25 +133,25 @@ The benchmark was executed multiple times under the same environment.
 
 ## CPU Usage
 
-![CPU Comparison](images/cpu-comparison.png)
+![CPU Comparison](images/cpu-comparison-airflow-vs-nifi.png)
 
 ---
 
 ## RAM Usage
 
-![RAM Comparison](images/ram-comparison.png)
+![RAM Comparison](images/ram-comparison-airflow-vs-nifi.png)
 
 ---
 
 ## RAM Percentage
 
-![RAM Percentage](images/ram-percentage-comparison.png)
+![RAM Percentage](images/ram-percentage-comparison-airflow-vs-nifi.png)
 
 ---
 
 ## System Load
 
-![System Load](images/system-load-comparison.png)
+![System Load](images/system-load-comparison-15-min-interval-airflow-vs-nifi.png)
 
 ---
 
